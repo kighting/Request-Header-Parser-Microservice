@@ -1,5 +1,14 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+   .container
+      h1 Header Parser API
+      h2 Author: 
+        a(href="https://github.com/kighting/header-parser") Kaiting Huang
+      .divider
+      p.title Example usage
+      p Input the following code in the URL: 
+      code https://kt-header-parser.herokuapp.com/api/whoami
+      p.title Expected output is JSON
+      p You'll get the response similar to the following: 
+      code {ipaddress: "00.00.00.00", language: "en-US", software: "Macintosh; Intel Mac OS X 10_11_0"}
