@@ -6,8 +6,14 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/api/whoami', function(req, res, next) {
-  res.json({ key: 'value' });
+router.get('/api/whoami', function(req, res) {
+  console.log(res);
+  var language = req.headers['accept-language'];
+  var userAgent = req.headers['user-agent'];
+  res.json({ 
+      "language": language,
+      "operating system": userAgent
+  });
 });
 
 module.exports = router;
