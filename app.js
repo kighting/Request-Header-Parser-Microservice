@@ -24,6 +24,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/api/whoami', function(req, res) {
+  console.log(res);
+  var ip = req.socket.remoteAddress.replace(/^[\s\S]*:/, "");
+  //host = request.host //If just wanna show localhost
+  var language = req.headers['accept-language'].replace(/,[\s\S]*$/, "");
+  var userAgent = req.headers['user-agent'].match(/\(([^)]+)\)/);
+  res.json({ 
+      "ip address": ip,
+      "language": language,
+      "operating system": userAgent[0].replace(/[\(\)]/g, "")
+  });
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
