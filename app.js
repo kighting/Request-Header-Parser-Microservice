@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/api/whoami', function(req, res) {
-  console.log(res);
+//  console.log(res);
   var ip = req.socket.remoteAddress.replace(/^[\s\S]*:/, "");
   //host = request.host //If just wanna show localhost
   var language = req.headers['accept-language'].replace(/,[\s\S]*$/, "");
